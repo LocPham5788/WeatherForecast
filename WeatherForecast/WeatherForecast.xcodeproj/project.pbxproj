@@ -15,6 +15,7 @@
 		412A478F2877E9220091529E /* WeatherForecastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A478E2877E9220091529E /* WeatherForecastTests.swift */; };
 		412A47992877E9220091529E /* WeatherForecastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47982877E9220091529E /* WeatherForecastUITests.swift */; };
 		412A479B2877E9220091529E /* WeatherForecastUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A479A2877E9220091529E /* WeatherForecastUITestsLaunchTests.swift */; };
+		412A47AD2877F0270091529E /* WeatherDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47AC2877F0270091529E /* WeatherDashboardTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		412A47942877E9220091529E /* WeatherForecastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherForecastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		412A47982877E9220091529E /* WeatherForecastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastUITests.swift; sourceTree = "<group>"; };
 		412A479A2877E9220091529E /* WeatherForecastUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		412A47AC2877F0270091529E /* WeatherDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDashboardTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				412A477B2877E9210091529E /* WeatherDashboardViewController.swift */,
+				412A47AC2877F0270091529E /* WeatherDashboardTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				412A477C2877E9210091529E /* WeatherDashboardViewController.swift in Sources */,
+				412A47AD2877F0270091529E /* WeatherDashboardTableViewCell.swift in Sources */,
 				412A47782877E9210091529E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
