@@ -26,6 +26,9 @@
                             <searchBar contentMode="redraw" text="" placeholder="Search city (at least 3 characters)" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ji-Yn-caX">
                                 <rect key="frame" x="0.0" y="100" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="oXO-8J-Raf"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="B6y-cz-plw">
                                 <rect key="frame" x="0.0" y="161" width="414" height="701"/>
