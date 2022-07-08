@@ -14,11 +14,28 @@ final class WeatherDashboardViewController: UIViewController {
     @IBOutlet weak private var searchBar: UISearchBar!
     @IBOutlet weak private var tableView: UITableView!
     
+    // MARK: - Private properties
+    
+    private lazy var viewModel = WeatherDashboardViewModel(delegate: self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // Create request
+        let request = WeatherQueryRequest(cityName: "saigon")
+        viewModel.fetchWeatherWithRequest(request)
     }
 
 
 }
 
+// MARK: - WeatherListViewDelegate
+extension WeatherDashboardViewController: WeatherDashboardViewDelegate {
+    func didFetchWeatherListSucceed() {
+        
+    }
+    
+    func didFetchWeatherListFailed() {
+        
+    }
+}

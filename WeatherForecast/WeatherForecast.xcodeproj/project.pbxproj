@@ -20,6 +20,13 @@
 		412A47B12877F4770091529E /* WeatherDashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47B02877F4770091529E /* WeatherDashboardModel.swift */; };
 		412A47B32877F9BA0091529E /* Temparature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47B22877F9BA0091529E /* Temparature.swift */; };
 		412A47B52877F9CD0091529E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47B42877F9CD0091529E /* Weather.swift */; };
+		412A47BA2878132C0091529E /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47B92878132C0091529E /* WeatherRequest.swift */; };
+		412A47BC2878136B0091529E /* WeatherBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47BB2878136B0091529E /* WeatherBaseRequest.swift */; };
+		412A47BE2878139F0091529E /* HTTPResponseStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47BD2878139F0091529E /* HTTPResponseStatusCode.swift */; };
+		412A47C02878141D0091529E /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47BF2878141D0091529E /* NetworkReachabilityManager.swift */; };
+		412A47C22878150D0091529E /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47C12878150D0091529E /* WeatherResponse.swift */; };
+		412A47C4287817110091529E /* APIConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47C3287817110091529E /* APIConfigure.swift */; };
+		412A47C628781AFD0091529E /* WeatherQueryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47C528781AFD0091529E /* WeatherQueryRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +64,13 @@
 		412A47B02877F4770091529E /* WeatherDashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDashboardModel.swift; sourceTree = "<group>"; };
 		412A47B22877F9BA0091529E /* Temparature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temparature.swift; sourceTree = "<group>"; };
 		412A47B42877F9CD0091529E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		412A47B92878132C0091529E /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
+		412A47BB2878136B0091529E /* WeatherBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherBaseRequest.swift; sourceTree = "<group>"; };
+		412A47BD2878139F0091529E /* HTTPResponseStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponseStatusCode.swift; sourceTree = "<group>"; };
+		412A47BF2878141D0091529E /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		412A47C12878150D0091529E /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		412A47C3287817110091529E /* APIConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfigure.swift; sourceTree = "<group>"; };
+		412A47C528781AFD0091529E /* WeatherQueryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQueryRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +121,7 @@
 		412A47762877E9210091529E /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				412A47B7287813110091529E /* Utilities */,
 				412A47A72877EAE70091529E /* AppDelegate */,
 				412A47A82877EAF30091529E /* Main Page */,
 				412A477D2877E9210091529E /* Main.storyboard */,
@@ -177,6 +192,52 @@
 				412A47B42877F9CD0091529E /* Weather.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		412A47B7287813110091529E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				412A47B82878131B0091529E /* Network */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		412A47B82878131B0091529E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				412A47C9287825C20091529E /* Manager */,
+				412A47C8287825980091529E /* Response */,
+				412A47C7287825880091529E /* Request */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		412A47C7287825880091529E /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				412A47B92878132C0091529E /* WeatherRequest.swift */,
+				412A47BB2878136B0091529E /* WeatherBaseRequest.swift */,
+				412A47C528781AFD0091529E /* WeatherQueryRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		412A47C8287825980091529E /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				412A47C12878150D0091529E /* WeatherResponse.swift */,
+				412A47BD2878139F0091529E /* HTTPResponseStatusCode.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		412A47C9287825C20091529E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				412A47BF2878141D0091529E /* NetworkReachabilityManager.swift */,
+				412A47C3287817110091529E /* APIConfigure.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,10 +371,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				412A47BA2878132C0091529E /* WeatherRequest.swift in Sources */,
+				412A47C4287817110091529E /* APIConfigure.swift in Sources */,
+				412A47BE2878139F0091529E /* HTTPResponseStatusCode.swift in Sources */,
 				412A47B32877F9BA0091529E /* Temparature.swift in Sources */,
 				412A477C2877E9210091529E /* WeatherDashboardViewController.swift in Sources */,
 				412A47AD2877F0270091529E /* WeatherDashboardTableViewCell.swift in Sources */,
 				412A47AF2877F3630091529E /* WeatherDashboardViewModel.swift in Sources */,
+				412A47C628781AFD0091529E /* WeatherQueryRequest.swift in Sources */,
+				412A47BC2878136B0091529E /* WeatherBaseRequest.swift in Sources */,
+				412A47C22878150D0091529E /* WeatherResponse.swift in Sources */,
+				412A47C02878141D0091529E /* NetworkReachabilityManager.swift in Sources */,
 				412A47782877E9210091529E /* AppDelegate.swift in Sources */,
 				412A47B12877F4770091529E /* WeatherDashboardModel.swift in Sources */,
 				412A47B52877F9CD0091529E /* Weather.swift in Sources */,
