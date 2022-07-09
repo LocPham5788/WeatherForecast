@@ -149,11 +149,13 @@ extension WeatherDashboardViewController: UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: WeatherDashboardTableViewCell.identifier, for: indexPath) as? WeatherDashboardTableViewCell {
             var contentText: String?
+            var weatherImage: String?
             if httpStatusCode == .notFound {
                 contentText = "No search city found"
             } else {
                 if weatherItems.count > indexPath.row {
                     contentText = weatherItems[indexPath.row].weatherItemDescription()
+                    weatherImage = weatherItems[indexPath.row].main
                 }
                 
             }
@@ -164,6 +166,7 @@ extension WeatherDashboardViewController: UITableViewDataSource, UITableViewDele
                 attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle,
                                               range: NSMakeRange(0, attributedString.length))
                 cell.weatherInfoLabel.attributedText = attributedString
+                // Weather image
                 cell.accessibilityLabel = contentText
             }
             return cell

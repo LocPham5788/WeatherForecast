@@ -47,13 +47,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clounds" translatesAutoresizingMaskIntoConstraints="NO" id="1o4-6c-n4y">
+                                                    <rect key="frame" x="375" y="4.5" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="KLv-nL-dI4"/>
+                                                        <constraint firstAttribute="width" constant="24" id="Zej-Af-dpI"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGray4Color"/>
                                             <constraints>
                                                 <constraint firstItem="I3h-wB-NGs" firstAttribute="leading" secondItem="EWi-u6-vZb" secondAttribute="leading" constant="16" id="1se-oa-8Nh"/>
                                                 <constraint firstAttribute="trailing" secondItem="I3h-wB-NGs" secondAttribute="trailing" constant="16" id="HHb-vF-N9U"/>
                                                 <constraint firstAttribute="bottom" secondItem="I3h-wB-NGs" secondAttribute="bottom" constant="8" id="dWb-Fh-shT"/>
+                                                <constraint firstAttribute="trailing" secondItem="1o4-6c-n4y" secondAttribute="trailing" constant="15" id="nQC-X4-adf"/>
                                                 <constraint firstItem="I3h-wB-NGs" firstAttribute="top" secondItem="EWi-u6-vZb" secondAttribute="top" constant="8" id="osR-w1-NX7"/>
+                                                <constraint firstItem="1o4-6c-n4y" firstAttribute="centerY" secondItem="EWi-u6-vZb" secondAttribute="centerY" id="xIc-ZU-TUc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -95,6 +104,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Clounds" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

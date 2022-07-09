@@ -29,6 +29,7 @@
 		412A47C628781AFD0091529E /* WeatherQueryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47C528781AFD0091529E /* WeatherQueryRequest.swift */; };
 		412A47CC287828240091529E /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47CB287828240091529E /* ErrorType.swift */; };
 		412A47CE287830D50091529E /* WeatherItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47CD287830D50091529E /* WeatherItem.swift */; };
+		4171BE502879C00000ED898A /* WeatherItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171BE4F2879C00000ED898A /* WeatherItemCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		412A47C528781AFD0091529E /* WeatherQueryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQueryRequest.swift; sourceTree = "<group>"; };
 		412A47CB287828240091529E /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		412A47CD287830D50091529E /* WeatherItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherItem.swift; sourceTree = "<group>"; };
+		4171BE4F2879C00000ED898A /* WeatherItemCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherItemCache.swift; path = ../../../../../../../modmo/Desktop/WeatherForecast/WeatherForecast/WeatherForecast/Utilities/Cache/WeatherItemCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		412A47B7287813110091529E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4171BE4E2879BFE300ED898A /* Cache */,
 				412A47CA287828170091529E /* Error */,
 				412A47B82878131B0091529E /* Network */,
 			);
@@ -252,6 +255,14 @@
 				412A47CB287828240091529E /* ErrorType.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		4171BE4E2879BFE300ED898A /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				4171BE4F2879C00000ED898A /* WeatherItemCache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +407,7 @@
 				412A47C628781AFD0091529E /* WeatherQueryRequest.swift in Sources */,
 				412A47BC2878136B0091529E /* WeatherBaseRequest.swift in Sources */,
 				412A47C22878150D0091529E /* WeatherResponse.swift in Sources */,
+				4171BE502879C00000ED898A /* WeatherItemCache.swift in Sources */,
 				412A47CE287830D50091529E /* WeatherItem.swift in Sources */,
 				412A47C02878141D0091529E /* NetworkReachabilityManager.swift in Sources */,
 				412A47782877E9210091529E /* AppDelegate.swift in Sources */,

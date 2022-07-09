@@ -24,4 +24,13 @@ struct WeatherQueryRequest {
         queries.append("units=Celsius")
         return queries.joined(separator: "&")
     }
+    
+    // For making query store caching
+    var storeQuery: String {
+        var query: String = ""
+        if let cityName = cityName, cityName.count != 0 {
+            query = cityName
+        }
+        return query
+    }
 }

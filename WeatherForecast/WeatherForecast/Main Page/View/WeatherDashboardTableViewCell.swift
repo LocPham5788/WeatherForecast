@@ -17,4 +17,5 @@ class WeatherDashboardTableViewCell: UITableViewCell {
     // MARK: - IBOutlet
     
     @IBOutlet weak var weatherInfoLabel: UILabel!
+    @IBOutlet weak var weatherIconImageview: UIImageView!
 }

@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
-        
+        // Clear cache when app receive memory warning
+        WeatherItemCache.shared.empty()
     }
 }
 

@@ -16,7 +16,8 @@ struct WeatherItem {
     let pressure: Int?
     let humidity: Int?
     let weatherDescription: String?
-    
+    let main: String?
+    // Rain - Clounds
     // MARK: - Initialize
     
     init(_ response: WeatherDashboardModel) {
@@ -48,6 +49,8 @@ struct WeatherItem {
         humidity = response.humidity
         // Weather description
         weatherDescription = response.weather?.first?.weatherDescription
+        // Main
+        main = response.weather?.first?.main
     }
     
     // MARK: - Public methods
