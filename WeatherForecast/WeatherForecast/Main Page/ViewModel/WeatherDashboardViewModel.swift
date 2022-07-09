@@ -8,8 +8,8 @@
 import UIKit
 
 protocol WeatherDashboardViewDelegate: AnyObject {
-    func didFetchWeatherListSucceed()
-    func didFetchWeatherListFailed()
+    func didFetchWeatherItemsSucceed(_ items: [WeatherItem])
+    func didFetchWeatherItemsFailed(_ statusCode: HTTPResponseStatusCode?, errorMessage: String?)
 }
 
 
@@ -33,8 +33,18 @@ class WeatherDashboardViewModel {
         // Execute request in background thread
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
-            self.apiRequest?.execute(completion: { (statusCode, error) in
+            self.apiRequest?.execute(completion: { (response, statusCode, error) in
                 self.apiRequest = nil
+                if let weatherList = response?.items {
+                    let weatherListUIModel = weatherList.compactMap { WeatherItem($0) }
+                    DispatchQueue.main.async {
+                        self.delegate?.didFetchWeatherItemsSucceed(weatherListUIModel)
+                    }
+                } else  {
+                    DispatchQueue.main.async {
+                        self.delegate?.didFetchWeatherItemsFailed(statusCode, errorMessage: error?.localizedDescription)
+                    }
+                }
             })
         }
     }

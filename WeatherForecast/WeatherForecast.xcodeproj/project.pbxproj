@@ -28,6 +28,7 @@
 		412A47C4287817110091529E /* APIConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47C3287817110091529E /* APIConfigure.swift */; };
 		412A47C628781AFD0091529E /* WeatherQueryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47C528781AFD0091529E /* WeatherQueryRequest.swift */; };
 		412A47CC287828240091529E /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47CB287828240091529E /* ErrorType.swift */; };
+		412A47CE287830D50091529E /* WeatherItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A47CD287830D50091529E /* WeatherItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		412A47C3287817110091529E /* APIConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfigure.swift; sourceTree = "<group>"; };
 		412A47C528781AFD0091529E /* WeatherQueryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQueryRequest.swift; sourceTree = "<group>"; };
 		412A47CB287828240091529E /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		412A47CD287830D50091529E /* WeatherItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				412A47B02877F4770091529E /* WeatherDashboardModel.swift */,
 				412A47B22877F9BA0091529E /* Temparature.swift */,
 				412A47B42877F9CD0091529E /* Weather.swift */,
+				412A47CD287830D50091529E /* WeatherItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				412A47C628781AFD0091529E /* WeatherQueryRequest.swift in Sources */,
 				412A47BC2878136B0091529E /* WeatherBaseRequest.swift in Sources */,
 				412A47C22878150D0091529E /* WeatherResponse.swift in Sources */,
+				412A47CE287830D50091529E /* WeatherItem.swift in Sources */,
 				412A47C02878141D0091529E /* NetworkReachabilityManager.swift in Sources */,
 				412A47782877E9210091529E /* AppDelegate.swift in Sources */,
 				412A47B12877F4770091529E /* WeatherDashboardModel.swift in Sources */,

@@ -9,6 +9,8 @@ import Foundation
 
 class WeatherRequest: WeatherBaseRequest {
     
+    typealias ReceivedModel = WeatherResponse
+    
     // MARK: - Private properties
     
     private var baseURl: String
@@ -44,7 +46,7 @@ class WeatherRequest: WeatherBaseRequest {
         guard let url = url else { return }
         // Check if internet connected or not
         guard NetworkReachabilityManager.isConnectedToNetwork() else {
-            completion(.noInternet, nil)
+            completion(nil, .noInternet, nil)
             return
         }
         print(url.absoluteString)
@@ -58,7 +60,7 @@ class WeatherRequest: WeatherBaseRequest {
             self.task = nil
             guard let dataResponse = data, error == nil else {
                 // No response data error
-                completion(.unknown, error)
+                completion(nil, .unknown, error)
                 print("No response data: \(String(describing: error))")
                 return
             }
@@ -66,16 +68,16 @@ class WeatherRequest: WeatherBaseRequest {
                 let decoder = JSONDecoder()
                 let weatherListResponse = try decoder.decode(WeatherResponse.self, from: dataResponse)
                 if weatherListResponse.statusCode == HTTPResponseStatusCode.ok.rawValue {
-                    completion(nil, nil)
+                    completion(weatherListResponse, nil, nil)
                 } else {
                     let statusCode: HTTPResponseStatusCode = HTTPResponseStatusCode(rawValue: weatherListResponse.statusCode ?? HTTPResponseStatusCode.unknown.rawValue) ?? .unknown
                     let err = NSError(domain: weatherListResponse.message ?? "", code: statusCode.rawValue, userInfo: nil)
-                    completion(statusCode, err)
+                    completion(nil, statusCode, err)
                 }
                 print("Parsing JSON succeeded: \(dataResponse)")
             } catch let parsingError {
                 print("Parsing JSON failed: \(parsingError)")
-                completion(.unknown, parsingError)
+                completion(nil, .unknown, parsingError)
             }
         }
         task?.resume()

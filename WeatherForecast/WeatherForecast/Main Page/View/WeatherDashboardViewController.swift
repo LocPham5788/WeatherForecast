@@ -16,25 +16,50 @@ final class WeatherDashboardViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private var currStatusCode: HTTPResponseStatusCode = .ok
+    private var httpStatusCode: HTTPResponseStatusCode = .ok
     private lazy var viewModel = WeatherDashboardViewModel(delegate: self)
+    
+    private var weatherItems: [WeatherItem] = [] {
+        didSet {
+            // If weather lit has data or search city isn't found
+            // => Show tableview, else hide it
+            if weatherItems.count > 0 || (weatherItems.count == 0 && httpStatusCode == .notFound) {
+                tableView.isHidden = false
+                tableView.reloadData()
+            } else {
+                tableView.isHidden = true
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupUIs()
     }
 
-
+    // MARK: - Setup UIs
+    
+    private func setupUIs() {
+        // Setup keyboard & TableView
+        searchBar.becomeFirstResponder()
+        tableView.isHidden = true
+    }
 }
 
 // MARK: - Private
 private extension WeatherDashboardViewController {
     
     @discardableResult
-    func validateSearchConditions() -> Bool {
+    func validateSearchConditions(isShowError: Bool = false) -> Bool {
         let searchBarText = searchBar.text?.trimmingCharacters(in: .whitespaces)
         guard let cityName = searchBarText, !cityName.isEmpty, cityName.count >= 3 else {
-            showErrorMessage(.invalidCity)
+            if isShowError {
+                showErrorMessage(.invalidCity)
+            } else {
+                httpStatusCode = .ok
+                weatherItems = []
+            }
             return false
         }
         return true
@@ -65,13 +90,16 @@ private extension WeatherDashboardViewController {
 extension WeatherDashboardViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if validateSearchConditions() {
+        if validateSearchConditions(isShowError: true) {
             view.endEditing(true)
         }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
+        searchBar.text = ""
+        httpStatusCode = .ok
+        tableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -81,11 +109,65 @@ extension WeatherDashboardViewController: UISearchBarDelegate {
 
 // MARK: - WeatherListViewDelegate
 extension WeatherDashboardViewController: WeatherDashboardViewDelegate {
-    func didFetchWeatherListSucceed() {
-        
+    func didFetchWeatherItemsFailed(_ statusCode: HTTPResponseStatusCode?, errorMessage: String?) {
+        guard let statusCode = statusCode else {
+            return
+        }
+        switch statusCode {
+        case .noInternet:
+            showErrorMessage(.fetchingNoInternet)
+        case .badRequest:
+            showErrorMessage(.fetchingBadRequest)
+        case .unknown:
+            showErrorMessage(.fetchingUnknown)
+        default:
+            break
+        }
+        httpStatusCode = statusCode
+        weatherItems = []
     }
     
-    func didFetchWeatherListFailed() {
-        
+    func didFetchWeatherItemsSucceed(_ items: [WeatherItem]) {
+        httpStatusCode = .ok
+        weatherItems = items
+    }
+}
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
+extension WeatherDashboardViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if weatherItems.isEmpty && (httpStatusCode == .notFound || !validateSearchConditions()) {
+            return 1
+        }
+        return weatherItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: WeatherDashboardTableViewCell.identifier, for: indexPath) as? WeatherDashboardTableViewCell {
+            var contentText: String?
+            if httpStatusCode == .notFound {
+                contentText = "No search city found"
+            } else {
+                if weatherItems.count > indexPath.row {
+                    contentText = weatherItems[indexPath.row].weatherItemDescription()
+                }
+                
+            }
+            if let contentText = contentText {
+                let attributedString = NSMutableAttributedString(string: contentText)
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 8.0
+                attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle,
+                                              range: NSMakeRange(0, attributedString.length))
+                cell.weatherInfoLabel.attributedText = attributedString
+                cell.accessibilityLabel = contentText
+            }
+            return cell
+        }
+        return WeatherDashboardTableViewCell()
     }
 }

@@ -8,7 +8,8 @@
 import Foundation
 
 protocol WeatherBaseRequest {
-    typealias ApiRequestCompletionType = (HTTPResponseStatusCode?, Error?) -> Void
+    typealias ApiRequestCompletionType = (ReceivedModel?, HTTPResponseStatusCode?, Error?) -> Void
+    associatedtype ReceivedModel: Decodable
     
     func execute(completion: @escaping ApiRequestCompletionType)
     func cancelRequest()
