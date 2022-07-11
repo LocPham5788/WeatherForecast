@@ -19,7 +19,7 @@ controls.
 
 *Weather List Main Screen*
 
-<img src="https://github.com/LocPham5788/WeatherForecast/master/Diagrams/search-result.png" data-canonical-src="https://github.com/LocPham5788/WeatherForecast/master/Diagrams/search-result.png" width="300" height="650" />
+<img src="https://github.com/LocPham5788/WeatherForecast/blob/4c4b189ec39ec746895538112e4c5ea445f8841a/WeatherForecast/Diagrams/search-result.png" data-canonical-src="https://github.com/LocPham5788/WeatherForecast/blob/4c4b189ec39ec746895538112e4c5ea445f8841a/WeatherForecast/Diagrams/search-result.png" width="300" height="650" />
 
 *UI Explaination*
 The Weather Forecast app main screen included 3 compoments
@@ -68,7 +68,7 @@ Some dialogs for error handling and exception
   - b. Scaling Text: Display size and font size: To change the size of items on your screen, adjust the display size or font size.
 - [x] 9. Entity relationship diagram for the database and solution diagrams for the components, infrastructure design if any
   - a. Caching mechanism diagram
-  - <img src="https://github.com/LocPham5788/WeatherForecast/master/Diagrams/caching-mechanism-diagram.png" data-canonical-src="https://github.com/LocPham5788/WeatherForecast/master/Diagrams/caching-mechanism-diagram.png" width="300" height="251" />
+  - <img src="https://github.com/LocPham5788/WeatherForecast/blob/4c4b189ec39ec746895538112e4c5ea445f8841a/WeatherForecast/Diagrams/caching-mechanism-diagram.png" data-canonical-src="https://github.com/LocPham5788/WeatherForecast/blob/4c4b189ec39ec746895538112e4c5ea445f8841a/WeatherForecast/Diagrams/caching-mechanism-diagram.png" width="300" height="251" />
   
 - [x] 10. Readme file includes:
   - a. Brief explanation for the software development principles, patterns & practices being applied
